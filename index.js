@@ -32,7 +32,7 @@ var checkSignature = function(req) {
 	// sort by dict order
 	var array = [token, timestamp, nonce];
 	array.sort();
-	
+	console.log(array)
 	// cat them
 	var str = sha1(array.join(""));
 	console.log(str)
