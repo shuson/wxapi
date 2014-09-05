@@ -1,0 +1,6 @@
+{
+  "name": "wxapi",
+  "description": "weixin in nodejs",
+  "repository": "https://github.com/shuson/wxapi",
+  "keywords": ["node", "weixin"]
+}
