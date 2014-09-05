@@ -3,7 +3,7 @@ var app = express();
 
 var token = 'wxapiAtDigitalOcean';
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 80))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(req, res) {
