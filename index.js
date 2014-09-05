@@ -23,9 +23,9 @@ app.get('/helloworld',function(req,res){
 var checkSignature = function(req) {    		
 	
 	// get params
-	var signature = req.query.signature,
-	var timestamp = req.query.timestamp,
-	var nonce = req.query.nonce,
+	var signature = req.query.signature;
+	var timestamp = req.query.timestamp;
+	var nonce = req.query.nonce;
 	var echostr = req.query.echostr;
 	
 	// sort by dict order
