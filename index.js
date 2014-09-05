@@ -8,9 +8,9 @@ app.set('port', (process.env.PORT || 80))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(req, res) {
-	console.log(req.params.echostr)
+	console.log(req.query.echostr)
     if (checkSignature(req)) {
-        res.send(200, req.params.echostr);
+        res.send(200, req.query.echostr);
     } else {
         res.send(200, 'fail');
     }
