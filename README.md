@@ -1,4 +1,4 @@
-# node-js-getting-started
+# node-js for weixin api
 
 A Node.js app using [Express 3](http://expressjs.com/).
 
