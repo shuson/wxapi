@@ -16,9 +16,9 @@ var Weixin = function() {
 Weixin.prototype.checkSignature = function(req) {    		
 	
 	// 获取校验参数
-	this.signature = req.query.signature,
-	this.timestamp = req.query.timestamp,
-	this.nonce = req.query.nonce,
+	this.signature = req.query.signature;
+	this.timestamp = req.query.timestamp;
+	this.nonce = req.query.nonce;
 	this.echostr = req.query.echostr;
 	
 	// 按照字典排序

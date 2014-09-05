@@ -1,9 +1,8 @@
 var express = require('express');
 var app = express();
-var sha1 = require('sha1');
 var weixin = require('./Weixin');
 
-var token = 'wxapiAtDigitalOcean';
+weixin.token = 'wxapiAtDigitalOcean';
 
 app.set('port', (process.env.PORT || 80))
 app.use(express.static(__dirname + '/public'))
