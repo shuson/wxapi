@@ -1,7 +1,7 @@
 var express = require('express')
 var app = express();
 
-token = 'wxapiAtHeroku';
+var token = 'wxapiAtDigitalOcean';
 
 app.set('port', (process.env.PORT || 5000))
 app.use(express.static(__dirname + '/public'))
@@ -22,20 +22,19 @@ app.get('/helloworld',function(req,res){
 
 var checkSignature = function(req) {    		
 	
-	// 获取校验参数
+	// get params
 	var signature = req.query.signature,
 	var timestamp = req.query.timestamp,
 	var nonce = req.query.nonce,
 	var echostr = req.query.echostr;
 	
-	// 按照字典排序
+	// sort by dict order
 	var array = [token, timestamp, nonce];
 	array.sort();
 	
-	// 连接
+	// cat them
 	var str = sha1(array.join(""));
 	
-	// 对比签名
 	if(str == signature) {
 		return true;
 	} else {
