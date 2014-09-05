@@ -16,6 +16,28 @@ app.get('/', function(req, res) {
     }
 });
 
+weixin.textMsg(function(msg) {
+    console.log("textMsg received");
+    console.log(JSON.stringify(msg));
+
+    var resMsg = {};
+
+    switch (msg.content) {
+        case "test" :
+            // 返回文本消息
+            resMsg = {
+                fromUserName : msg.toUserName,
+                toUserName : msg.fromUserName,
+                msgType : "text",
+                content : "this is test from server!",
+                funcFlag : 0
+            };
+            break;
+    }
+
+    weixin.sendMsg(resMsg);
+});
+
 app.get('/helloworld',function(req,res){
 	res.send("hello world!");
 });
