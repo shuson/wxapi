@@ -5,6 +5,7 @@ var weixin = require('./Weixin');
 weixin.token = 'wxapiAtDigitalOcean';
 
 app.set('port', (process.env.PORT || 80))
+app.use(express.bodyParser());
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(req, res) {
@@ -23,8 +24,8 @@ weixin.textMsg(function(msg) {
     var resMsg = {};
 
     switch (msg.content) {
-        case "test" :
-            // 返回文本消息
+        case "text" :
+            // return text only
             resMsg = {
                 fromUserName : msg.toUserName,
                 toUserName : msg.fromUserName,
@@ -33,6 +34,15 @@ weixin.textMsg(function(msg) {
                 funcFlag : 0
             };
             break;
+        default:
+        	resMsg = {
+        		fromUserName : msg.toUserName,
+        		toUserName : msg.fromUserName,
+        		msgType : "text",
+        		content : "this is default reply!",
+        		funcFlag : 0
+        	}
+        break;
     }
 
     weixin.sendMsg(resMsg);
