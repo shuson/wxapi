@@ -8,9 +8,9 @@ app.set('port', (process.env.PORT || 80))
 app.use(express.static(__dirname + '/public'))
 
 app.get('/', function(req, res) {
-
+	console.log(req.params.echostr)
     if (checkSignature(req)) {
-        res.send(200, req.query.echostr);
+        res.send(200, req.params.echostr);
     } else {
         res.send(200, 'fail');
     }
@@ -35,7 +35,7 @@ var checkSignature = function(req) {
 	
 	// cat them
 	var str = sha1(array.join(""));
-	
+	console.log(str)
 	if(str == signature) {
 		return true;
 	} else {
